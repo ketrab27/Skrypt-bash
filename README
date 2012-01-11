@@ -13,9 +13,9 @@ menu
 
 ram()
 {
-echo -e "\nCaĹ‚a pamiÄ™Ä‡ RAM $(cat /proc/meminfo | grep 'MemTotal')\n"
-echo -e "Wolna pamiÄ™Ä‡ RAM $(cat /proc/meminfo | grep 'MemFree')\n"
-menu
+echo -e "\nCala pamiec RAM $(cat /proc/meminfo | grep 'MemTotal')\n"
+echo -e "Wolna pamie RAM $(cat /proc/meminfo | grep 'MemFree')\n"
+menuc
 }
 
 # INFO O DYSKU I PARTYCJACH
@@ -44,15 +44,15 @@ menu
 
 menu()
 {
-echo -e "SKRYPT WYĹšWIETLAJÄ„CY INFORMACJE O SYSTEMIE\n"
-echo -e "Wybierz opcjÄ™:\n"
-echo "1. WyĹ›wietl informacjÄ™ o procesorze."
-echo "2. WyĹ›wietl informacjÄ™ o pamiÄ™ci RAM."
-echo "3. WyĹ›wietl informacjÄ™ o partycjach."
-echo "4. WyĹ›wietl informacjÄ™ o partycji SWAP."
-echo "5. WyĹ›wietl informacjÄ™ o wersji jÄ…dra."
-echo -e "\nWciĹ›nij q, aby wyjĹ›Ä‡."
-echo -ne "\nTwĂłj wybĂłr: " 
+echo -e "SKRYPT WYSWIETLAJACY INFORMACJE O SYSTEMIE\n"
+echo -e "Wybierz opcje:\n"
+echo "1. Wyswietl informacje o procesorze."
+echo "2. Wyswietl informacje o pamieci RAM."
+echo "3. Wyswietl informacje o partycjach."
+echo "4. Wyswietl informacje o partycji SWAP."
+echo "5. Wyswietl informacje o wersji jadra."
+echo -e "\nWcisnij q, aby wyjsc."
+echo -ne "\nTwoj wybor: " 
 }
 
 menu
@@ -65,6 +65,6 @@ while [ 0 ]; do
 	"4") swap ;;
 	"5") jadro ;;
         "q") exit 0 ;;
-        *) echo "Aby wybraÄ‡, wciĹ›nij 1-5 lub wyjdĹş, wciskajÄ…c q."
+        *) echo "Aby wybrac, wcisnij 1-5 lub wyjdz, wciskajac q."
     esac
 done
