@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# INFO O CPU
+
+cpu()
+{
+echo -e "\nModel procesora: $(cat /proc/cpuinfo |grep 'model name')\n"
+echo -e "Taktowanie procesora: $(cat /proc/cpuinfo |grep 'cpu MHz')\n"
+menu 
+}
+
+# INFO O RAM
+
+ram()
+{
+echo -e "\nCaĹ‚a pamiÄ™Ä‡ RAM $(cat /proc/meminfo | grep 'MemTotal')\n"
+echo -e "Wolna pamiÄ™Ä‡ RAM $(cat /proc/meminfo | grep 'MemFree')\n"
+menu
+}
+
+# INFO O DYSKU I PARTYCJACH
+
+disk()
+{
+echo -e "\n\n$(cat /proc/partitions)\n\n"
+menu
+}
+
+# INFO O PARTYCJI SWAP
+
+swap()
+{
+echo -e "\n\n\n$(cat /proc/swaps)\n\n\n"
+menu
+}
+
+# INFO O WERSJI JÄ„DRA
+
+jadro()
+{
+echo -e "\n\n\n$(cat /proc/version)\n\n\n"
+menu
+}
+
+menu()
+{
+echo -e "SKRYPT WYĹšWIETLAJÄ„CY INFORMACJE O SYSTEMIE\n"
+echo -e "Wybierz opcjÄ™:\n"
+echo "1. WyĹ›wietl informacjÄ™ o procesorze."
+echo "2. WyĹ›wietl informacjÄ™ o pamiÄ™ci RAM."
+echo "3. WyĹ›wietl informacjÄ™ o partycjach."
+echo "4. WyĹ›wietl informacjÄ™ o partycji SWAP."
+echo "5. WyĹ›wietl informacjÄ™ o wersji jÄ…dra."
+echo -e "\nWciĹ›nij q, aby wyjĹ›Ä‡."
+echo -ne "\nTwĂłj wybĂłr: " 
+}
+
+menu
+while [ 0 ]; do
+    read odp
+    case $odp in
+        "1") cpu ;;
+        "2") ram ;;
+  "3") disk ;;
+	"4") swap ;;
+	"5") jadro ;;
+        "q") exit 0 ;;
+        *) echo "Aby wybraÄ‡, wciĹ›nij 1-5 lub wyjdĹş, wciskajÄ…c q."
+    esac
+done
